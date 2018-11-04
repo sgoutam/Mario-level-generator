@@ -1,6 +1,7 @@
 package dk.itu.mario.level;
 
 import java.util.Random;
+import java.io.*;
 
 import dk.itu.mario.MarioInterface.Constraints;
 import dk.itu.mario.MarioInterface.GamePlay;
@@ -32,27 +33,59 @@ public class CustomizedLevel extends Level implements LevelInterface {
     private GamePlay playerM;
 
     public CustomizedLevel(int width, int height, long seed, int difficulty,
-                           int type, GamePlay playerMetrics) {
+                           int type, GamePlay playerMetrics) throws Exception{
         super(width, height);
         this.playerM = playerMetrics;
         creat();
     }
 
-    public void creat() {
+    public void creat() throws Exception {
         
-        for(int i =0; i<100; i++)
+        File file = new File("input.txt");
+        BufferedReader br = new BufferedReader(new FileReader(file));
+
+        int array[] = new int[500];
+        for(int i =0;i<499;i++)
         {
-            setBlock(i,getHeight()-2, Level.HILL_TOP);
-            setBlock(i,getHeight()-1,Level.GROUND); 
-            setBlock(i,getHeight()-3,Level.COIN);
+            array[i] = Integer.parseInt(br.readLine());
         }
-        for(int i =5; i<10; i++)
+        for(int i=0;i<499;i++)
         {
-            setBlock(i,getHeight()-5, Level.HILL_TOP);
-            setBlock(i,getHeight()-4,Level.GROUND); 
-            setBlock(i,getHeight()-6,Level.COIN);
+            switch(array[i])
+            {
+                case 0:
+                break;
+                
+                case 1:
+                setBlock(i%100, getHeight()-1, Level.GROUND);
+                setBlock(i%100, getHeight()-2, Level.HILL_TOP);
+                break;
+
+                case 2:
+                setBlock(i%100, 13-(i/100), Level.BLOCK_EMPTY);
+                break;
+
+                case 3:
+                setBlock(i%100, 13-(i/100), Level.BLOCK_COIN);
+                break;
+                
+                case 4:
+                setBlock(i%100, 13-(i/100), Level.BLOCK_POWERUP);
+                break;
+                
+                case 5:
+                setBlock(i%100, 13-(i/100), Level.COIN);
+                break;
+
+            }
+
         }
-        xExit=50;
+        for(int i=99;i<115;i++)
+        {
+            setBlock(i, getHeight()-1, Level.GROUND);
+            setBlock(i, getHeight()-2, Level.HILL_TOP);
+        }
+        xExit=100;
         yExit=13;
 
     }

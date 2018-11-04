@@ -66,5 +66,4 @@ result(T, S) :- S = #count{X,Y :getType(X,Y,T)}, type(T).
 :- at(_, 2, 6).
 :- at(_, 3, 6).
 :- at(_, 4, 6).
-
 #show at/3.
