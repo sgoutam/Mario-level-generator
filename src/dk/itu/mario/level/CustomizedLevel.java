@@ -62,25 +62,25 @@ public class CustomizedLevel extends Level implements LevelInterface {
                 break;
 
                 case 2:
-                setBlock(i%100, 13-(i/100), Level.BLOCK_EMPTY);
+                setBlock(i%100, 12-((i%500)/100), Level.BLOCK_EMPTY);
                 break;
 
                 case 3:
-                setBlock(i%100, 13-(i/100), Level.BLOCK_COIN);
+                setBlock(i%100, 12-((i%500)/100), Level.BLOCK_COIN);
                 break;
                 
                 case 4:
-                setBlock(i%100, 13-(i/100), Level.BLOCK_POWERUP);
+                setBlock(i%100, 12-((i%500)/100), Level.BLOCK_POWERUP);
                 break;
                 
                 case 5:
-                setBlock(i%100, 13-(i/100), Level.COIN);
+                setBlock(i%100, 12-((i%500)/100), Level.COIN);
                 break;
 
             }
 
         }
-        for(int i=99;i<115;i++)
+        for(int i=99;i<120;i++)
         {
             setBlock(i, getHeight()-1, Level.GROUND);
             setBlock(i, getHeight()-2, Level.HILL_TOP);

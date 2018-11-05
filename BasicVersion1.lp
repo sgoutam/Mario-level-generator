@@ -21,19 +21,16 @@ tile(2).
 tile(3).
 tile(4).
 tile(5).
-tile(6).
 
-at(X,Y,T) : tile(T) :-  dimX(X), dimY(Y).	
-
-getType(X,Y,T):- at(X,Y,T).
+1{at(X,Y,T) : tile(T)}1 :-  dimX(X), dimY(Y).	
 
 type(T) :- at(_,_,T).
 
-result(T, S) :- S = #count{X,Y :getType(X,Y,T)}, type(T).
+result(T, S) :- S = #count{X,Y :at(X,Y,T)}, type(T).
 
-:- result(0,S), S>360.
+:- result(0,S), S>370.
 
-:- result(2,S), S>minBricks.
+:- result(2,S), S<minBricks.
 
 :- result(2,S), S>maxBricks.
 
@@ -55,15 +52,11 @@ result(T, S) :- S = #count{X,Y :getType(X,Y,T)}, type(T).
 :- at(_, 0, 3).
 :- at(_, 0, 4).	
 :- at(_, 0, 5).
-:- at(_, 0, 6).
+
 
 :- at(_, 1, 1).
 :- at(_, 2, 1).
 :- at(_, 3, 1).
 :- at(_, 4, 1).
 
-:- at(_, 1, 6).
-:- at(_, 2, 6).
-:- at(_, 3, 6).
-:- at(_, 4, 6).
 #show at/3.
