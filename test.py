@@ -1,11 +1,12 @@
+
 #! /usr/bin/env python3
 
 arr = []
 
 
-outfile = open("input.txt", "w")
+outfile = open("src/input.txt", "w")
 
-with open("trial.txt", "r") as f:
+with open("trial2.txt", "r") as f:
 	for line in f:
 		if line.startswith("at("):
 			words = line.strip('\n').split(" ")

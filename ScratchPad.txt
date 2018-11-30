@@ -1,0 +1,15 @@
+:- result(2,A), result(3,B), result(4,C), (A+B+C)< minBrickCoin.
+
+:- result(2,A), result(3,B), result(4,C), (A+B+C)> maxBrickCoin.
+
+:- result(5,A), result(6,B), result(7,C), (A+B+C)< minRandomCoin.
+
+:- result(5,A), result(6,B), result(7,C), (A+B+C)> maxRandomCoin.
+
+:- result(20,S), S<minPowerup.
+
+:- result(20,S), S>maxPowerup.
+
+:- result(8,A), result(9,B), result(10,C), result(11,D), (A+B+C+D)< minBricks.
+
+:- result(8,A), result(9,B), result(10,C), result(11,D), (A+B+C+D)> maxBricks.
