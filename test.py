@@ -4,7 +4,7 @@
 arr = []
 
 
-outfile = open("src/input.txt", "w")
+outfile = open("Clingo Levels/input.txt", "w")
 
 with open("trial2.txt", "r") as f:
 	for line in f:
