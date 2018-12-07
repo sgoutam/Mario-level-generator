@@ -15,13 +15,20 @@ namespace CatSAT
         
         static void Main()
         {
-            CatSAT.Random.SetSeed();
-            GenerateLevel();
+            using(System.IO.StreamWriter file = (new System.IO.StreamWriter("catsat_time_log.txt")))
+            foreach (int i in Enumerable.Range(0, 25))
+            {
+                var filename = "input_" + i.ToString() + ".txt";
+                CatSAT.Random.SetSeed();
+                var time = GenerateLevel(filename);
+                var data = "Level:" + i.ToString() + "  Runtime:" + time.ToString();
+                file.WriteLine(data);
+            }
             //foreach (var i in Enumerable.Range(0,4)) { Console.WriteLine(i); }
             Console.WriteLine("Press any key to exit!");
             Console.ReadKey();
         }
-        static void GenerateLevel()
+        static long GenerateLevel(String filename)
         {
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -243,7 +250,7 @@ namespace CatSAT
 
             watch.Stop();
 
-            using (TextWriter tw = new StreamWriter("input.txt"))
+            using (TextWriter tw = new StreamWriter(filename))
             {
                 foreach (int y in Enumerable.Range(0, height))
                 {
@@ -256,6 +263,7 @@ namespace CatSAT
             }
 
             Console.WriteLine("Elapsed Time: "+ watch.ElapsedMilliseconds);
+            return(watch.ElapsedMilliseconds);
         }
     }
 }
