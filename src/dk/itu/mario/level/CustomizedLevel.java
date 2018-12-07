@@ -343,7 +343,7 @@ public class CustomizedLevel extends Level implements LevelInterface {
         	setBlock(i, getHeight()-1, Level.GROUND);
             setBlock(i, getHeight()-2, Level.HILL_TOP);
         }
-        xExit=105;
+        xExit=100;
         yExit=13;
 
     }
